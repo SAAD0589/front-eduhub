@@ -1,4 +1,5 @@
 import React from 'react'
+import logoLight from '../assets/images/logo-light.svg';
 
 export default function Footer() {
   return (
@@ -10,29 +11,24 @@ export default function Footer() {
         <div class="footer-brand">
 
           <a href="#" class="logo">
-            <img src="./assets/images/logo-light.svg" width="162" height="50" alt="EduWeb logo"/>
+            <img src={logoLight} width="162" height="50" alt="EduWeb logo"/>
           </a>
 
           <p class="footer-brand-text">
-            Lorem ipsum dolor amet consecto adi pisicing elit sed eiusm tempor incidid unt labore dolore.
-          </p>
+          EduHub est votre plateforme de référence pour les formations certifiées au Maroc. Nous offrons une large gamme de cours en ligne et sur campus, conçus pour développer vos compétences professionnelles et personnelles.          </p>
+
+          
 
           <div class="wrapper">
-            <span class="span">Add:</span>
+            <span class="span">Téléphone :</span>
 
-            <address class="address">70-80 Upper St Norwich NR2</address>
-          </div>
-
-          <div class="wrapper">
-            <span class="span">Call:</span>
-
-            <a href="tel:+011234567890" class="footer-link">+01 123 4567 890</a>
+            <a href="tel:+011234567890" class="footer-link">+212 6 12 34 56 78</a>
           </div>
 
           <div class="wrapper">
             <span class="span">Email:</span>
 
-            <a href="mailto:info@eduweb.com" class="footer-link">info@eduweb.com</a>
+            <a href="mailto:info@eduweb.com" class="footer-link">info@eduhub.com</a>
           </div>
 
         </div>
@@ -40,65 +36,36 @@ export default function Footer() {
         <ul class="footer-list">
 
           <li>
-            <p class="footer-list-title">Online Platform</p>
+            <p class="footer-list-title">Plateforme en Ligne</p>
           </li>
 
           <li>
-            <a href="#" class="footer-link">About</a>
+            <a href="#" class="footer-link">Accueil</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Courses</a>
+            <a href="#" class="footer-link">Infos</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Instructor</a>
+            <a href="#" class="footer-link">E-learning</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Events</a>
+            <a href="#" class="footer-link">Campus</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Instructor Profile</a>
+            <a href="#" class="footer-link">Contact</a>
           </li>
 
-          <li>
-            <a href="#" class="footer-link">Purchase Guide</a>
-          </li>
+         
 
         </ul>
 
         <ul class="footer-list">
 
-          <li>
-            <p class="footer-list-title">Links</p>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Contact Us</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Gallery</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">News & Articles</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">FAQ's</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Sign In/Registration</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Coming Soon</a>
-          </li>
-
+          
         </ul>
 
         <div class="footer-list">
@@ -110,7 +77,7 @@ export default function Footer() {
           </p>
 
           <form action="" class="newsletter-form">
-            <input type="email" name="email_address" placeholder="Your email" 
+            <input type="email" name="email_address" placeholder="Votre email" 
             required class="input-field"/>
 
             <button type="submit" class="btn has-before">
@@ -158,17 +125,6 @@ export default function Footer() {
 
       </div>
     </div>
-
-    <div class="footer-bottom">
-      <div class="container">
-
-        <p class="copyright">
-          Copyright 2022 All Rights Reserved by <a href="#" class="copyright-link">codewithsadee</a>
-        </p>
-
-      </div>
-    </div>
-
   </footer>
 
   )

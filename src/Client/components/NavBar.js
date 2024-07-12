@@ -1,78 +1,67 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../assets/images/logo.svg';
 
 export default function NavBar() {
   return (
-    <header class="header" data-header>
-        <div class="container">
-          <a href="#" class="logo">
-            <img src="./assets/images/logo.svg" width="162" height="50" alt="EduHub logo"/>
-          </a>
-    
-          <nav class="navbar" data-navbar>
-    
-            <div class="wrapper">
-              <a href="#" class="logo">
-                <img src="./assets/images/logo.svg" width="162" height="50" alt="EduWeb logo"/>
-              </a>
-    
-              <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
-                <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
-              </button>
-            </div>
-    
-            <ul class="navbar-list">
-    
-              <li class="navbar-item">
-                <a href="#home" class="navbar-link" data-nav-link>Home</a>
-              </li>
-    
-              <li class="navbar-item">
-                <a href="#about" class="navbar-link" data-nav-link>About</a>
-              </li>
-    
-              <li class="navbar-item">
-                <a href="#courses" class="navbar-link" data-nav-link>Courses</a>
-              </li>
-    
-              <li class="navbar-item">
-                <a href="#blog" class="navbar-link" data-nav-link>Blog</a>
-              </li>
-    
-              <li class="navbar-item">
-                <a href="#" class="navbar-link" data-nav-link>Contact</a>
-              </li>
-    
-            </ul>
-    
-          </nav>
-    
-          <div class="header-actions">
-    
-            <button class="header-action-btn" aria-label="toggle search" title="Search">
-              <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+    <header className="header" data-header>
+      <div className="container">
+        <Link to="/" className="logo">
+          <img src={logo} width="162" height="50" alt="EduHub logo" />
+        </Link>
+
+        <nav className="navbar" data-navbar>
+          <div className="wrapper">
+            <Link to="/" className="logo">
+              <img src={logo} width="162" height="50" alt="EduWeb logo" />
+            </Link>
+
+            <button className="nav-close-btn" aria-label="close menu" data-nav-toggler>
+              <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
             </button>
-    
-            <button class="header-action-btn" aria-label="cart" title="Cart">
-              <ion-icon name="cart-outline" aria-hidden="true"></ion-icon>
-    
-              <span class="btn-badge">0</span>
-            </button>
-    
-            <a href="#" class="btn has-before">
-              <span class="span">Try for free</span>
-    
-              <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-            </a>
-    
-            <button class="header-action-btn" aria-label="open menu" data-nav-toggler>
-              <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
-            </button>
-    
           </div>
-    
-          <div class="overlay" data-nav-toggler data-overlay></div>
-    
+
+          <ul className="navbar-list">
+            <li className="navbar-item">
+              <Link to="/" className="navbar-link" data-nav-link>Accueil</Link>
+            </li>
+            <li className="navbar-item">
+              <Link to="/about" className="navbar-link" data-nav-link>Infos</Link>
+            </li>
+            <li className="navbar-item">
+              <Link to="/courses" className="navbar-link" data-nav-link>E-learning</Link>
+            </li>
+            <li className="navbar-item">
+              <Link to="/blog" className="navbar-link" data-nav-link>Campus</Link>
+            </li>
+            <li className="navbar-item">
+              <Link to="/contact" className="navbar-link" data-nav-link>Contact</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <div className="header-actions">
+          <button className="header-action-btn" aria-label="toggle search" title="Search">
+            <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+          </button>
+
+          <button className="header-action-btn" aria-label="cart" title="Cart">
+            <ion-icon name="cart-outline" aria-hidden="true"></ion-icon>
+            <span className="btn-badge">0</span>
+          </button>
+
+          <Link to="/login" className="btn has-before">
+            <span className="span">Connexion</span>
+            <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+          </Link>
+
+          <button className="header-action-btn" aria-label="open menu" data-nav-toggler>
+            <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+          </button>
         </div>
-      </header>
-  )
+
+        <div className="overlay" data-nav-toggler data-overlay></div>
+      </div>
+    </header>
+  );
 }
