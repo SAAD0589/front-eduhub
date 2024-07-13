@@ -8,6 +8,7 @@ import Contact from './Client/components/Contact';
 import NavBar from './Client/components/NavBar'
 import Footer from './Client/components/Footer'
 
+
 export default function App() {
   return (
     <Router>

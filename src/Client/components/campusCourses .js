@@ -1,102 +1,102 @@
 const campusCourses = [
   {
     id: 1,
-    nom: "Atelier de développement web",
-    image: "/assets/images/blog-1.jpg",
-    description: "Un atelier intensif pour apprendre le développement web, organisé par l'INPT à Rabat.",
-    date_debut: "2024-09-01 08:00",
-    date_fin: "2024-09-15 18:00",
-    adresse: "123 Rue du Développement, Rabat, Maroc"
+    nom: "Cours en ligne de programmation",
+    image: "/assets/images/ensamRabat.JPG",
+    description: "Un cours complet pour apprendre la programmation en ligne, offert par l'Université Mohammed V de Rabat.",
+    date_debut: "2024-07-01",
+    date_fin: "2024-12-31",
+    duree: "6 mois" 
   },
   {
     id: 2,
-    nom: "Séminaire de gestion de projet",
-    image: "/assets/images/blog-2.jpg",
-    description: "Un séminaire pour maîtriser les techniques de gestion de projet, proposé par l'École Nationale Supérieure des Mines de Rabat.",
-    date_debut: "2024-10-01 09:00",
-    date_fin: "2024-10-10 17:00",
-    adresse: "456 Avenue des Projets, Rabat, Maroc"
+    nom: "Marketing digital en ligne",
+    image: "/assets/images/uir.PNG",
+    description: "Apprenez les bases du marketing digital depuis chez vous, proposé par l'École Nationale de Commerce et de Gestion de Kénitra.",
+    date_debut: "2024-08-15",
+    date_fin: "2024-11-15",
+    duree: "3 mois" 
   },
   {
     id: 3,
-    nom: "Formation en intelligence artificielle",
-    image: "/assets/images/blog-3.jpg",
-    description: "Une formation avancée en intelligence artificielle, organisée par l'École Mohammadia d'Ingénieurs.",
-    date_debut: "2024-11-01 10:00",
-    date_fin: "2024-11-20 16:00",
-    adresse: "789 Boulevard des Sciences, Rabat, Maroc"
+    nom: "Analyse de données en ligne",
+    image: "/assets/images/ensias.JPG",
+    description: "Un cours en ligne pour maîtriser l'analyse de données, proposé par l'École Nationale Supérieure d'Informatique et d'Analyse des Systèmes de Rabat.",
+    date_debut: "2024-09-01",
+    date_fin: "2024-12-01",
+    duree: "3 mois" 
   },
   {
     id: 4,
-    nom: "Workshop en design graphique",
-    image: "/assets/images/blog-1.jpg",
-    description: "Un workshop créatif en design graphique, offert par l'École Supérieure des Arts Visuels de Marrakech.",
-    date_debut: "2024-07-10 09:00",
-    date_fin: "2024-07-20 17:00",
-    adresse: "321 Rue de l'Art, Salé, Maroc"
+    nom: "Cours de finance ",
+    image: "/assets/images/ibntofail.PNG",
+    description: "Apprenez les principes de la finance en ligne, offert par l'Institut Agronomique et Vétérinaire Hassan II.",
+    date_debut: "2024-07-20",
+    date_fin: "2024-11-20",
+    duree: "4 mois" 
   },
   {
     id: 5,
-    nom: "Cours de communication",
-    image: "/assets/images/blog-2.jpg",
-    description: "Un cours intensif en communication, proposé par l'Institut des Hautes Etudes de Management à Kénitra.",
-    date_debut: "2024-08-15 08:30",
-    date_fin: "2024-08-25 16:30",
-    adresse: "654 Rue de la Communication, Kénitra, Maroc"
+    nom: "Gestion des ressources humaines",
+    image: "/assets/images/emi.PNG",
+    description: "Un cours en ligne sur la gestion des ressources humaines, proposé par l'Université Ibn Tofail de Kénitra.",
+    date_debut: "2024-08-01",
+    date_fin: "2024-12-01",
+    duree: "4 mois" 
   },
   {
     id: 6,
-    nom: "Formation en entrepreneuriat",
-    image: "/assets/images/blog-3.jpg",
-    description: "Une formation pratique en entrepreneuriat, organisée par l'Université Euro-Méditerranéenne de Fès.",
-    date_debut: "2024-09-05 09:30",
-    date_fin: "2024-09-15 17:30",
-    adresse: "987 Avenue de l'Innovation, Rabat, Maroc"
+    nom: "Développement web ",
+    image: "/assets/images/encgKenitra.PNG",
+    description: "Un cours complet de développement web en ligne, offert par l'Université Internationale de Rabat.",
+    date_debut: "2024-09-15",
+    date_fin: "2024-12-15",
+    duree: "3 mois" 
   },
   {
     id: 2,
-    nom: "Séminaire de gestion de projet",
-    image: "/assets/images/blog-2.jpg",
-    description: "Un séminaire pour maîtriser les techniques de gestion de projet, proposé par l'École Nationale Supérieure des Mines de Rabat.",
-    date_debut: "2024-10-01 09:00",
-    date_fin: "2024-10-10 17:00",
-    adresse: "456 Avenue des Projets, Rabat, Maroc"
+    nom: "Marketing digital ",
+    image: "/assets/images/emsiRabat.JPG",
+    description: "Apprenez les bases du marketing digital depuis chez vous, proposé par l'École Nationale de Commerce et de Gestion de Kénitra.",
+    date_debut: "2024-08-15",
+    date_fin: "2024-11-15",
+    duree: "3 mois" 
   },
   {
     id: 3,
-    nom: "Formation en intelligence artificielle",
-    image: "/assets/images/blog-3.jpg",
-    description: "Une formation avancée en intelligence artificielle, organisée par l'École Mohammadia d'Ingénieurs.",
-    date_debut: "2024-11-01 10:00",
-    date_fin: "2024-11-20 16:00",
-    adresse: "789 Boulevard des Sciences, Rabat, Maroc"
+    nom: "Analyse de données ",
+    image: "/assets/images/ensaKenitra.PNG",
+    description: "Un cours en ligne pour maîtriser l'analyse de données, proposé par l'École Nationale Supérieure d'Informatique et d'Analyse des Systèmes de Rabat.",
+    date_debut: "2024-09-01",
+    date_fin: "2024-12-01",
+    duree: "3 mois" 
   },
   {
     id: 4,
-    nom: "Workshop en design graphique",
-    image: "/assets/images/blog-1.jpg",
-    description: "Un workshop créatif en design graphique, offert par l'École Supérieure des Arts Visuels de Marrakech.",
-    date_debut: "2024-07-10 09:00",
-    date_fin: "2024-07-20 17:00",
-    adresse: "321 Rue de l'Art, Salé, Maroc"
+    nom: "Cours de finance ",
+    image: "/assets/images/estSale.JPG",
+    description: "Apprenez les principes de la finance en ligne, offert par l'Institut Agronomique et Vétérinaire Hassan II.",
+    date_debut: "2024-07-20",
+    date_fin: "2024-11-20",
+    duree: "4 mois" 
   },
   {
     id: 5,
-    nom: "Cours de communication",
-    image: "/assets/images/blog-2.jpg",
-    description: "Un cours intensif en communication, proposé par l'Institut des Hautes Etudes de Management à Kénitra.",
-    date_debut: "2024-08-15 08:30",
-    date_fin: "2024-08-25 16:30",
-    adresse: "654 Rue de la Communication, Kénitra, Maroc"
+    nom: "Gestion des ressources humaines",
+    image: "/assets/images/um5Rabat.PNG",
+    description: "Un cours en ligne sur la gestion des ressources humaines, proposé par l'Université Ibn Tofail de Kénitra.",
+    date_debut: "2024-08-01",
+    date_fin: "2024-12-01",
+    duree: "4 mois" 
   },
   {
     id: 6,
-    nom: "Formation en entrepreneuriat",
-    image: "/assets/images/blog-3.jpg",
-    description: "Une formation pratique en entrepreneuriat, organisée par l'Université Euro-Méditerranéenne de Fès.",
-    date_debut: "2024-09-05 09:30",
-    date_fin: "2024-09-15 17:30",
-    adresse: "987 Avenue de l'Innovation, Rabat, Maroc"
+    nom: "Développement web ",
+    image: "/assets/images/uir.PNG",
+    description: "Un cours complet de développement web en ligne, offert par l'Université Internationale de Rabat.",
+    date_debut: "2024-09-15",
+    date_fin: "2024-12-15",
+    duree: "3 mois" 
   }
 ];
 

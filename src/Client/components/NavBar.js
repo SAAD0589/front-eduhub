@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../assets/images/logo.svg';
+import logo from '../assets/images/logo.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 export default function NavBar() {
   return (
@@ -34,9 +36,6 @@ export default function NavBar() {
             <li className="navbar-item">
               <Link to="/blog" className="navbar-link" data-nav-link>Campus</Link>
             </li>
-            <li className="navbar-item">
-              <Link to="/contact" className="navbar-link" data-nav-link>Contact</Link>
-            </li>
           </ul>
         </nav>
 
@@ -46,8 +45,7 @@ export default function NavBar() {
           </button>
 
           <button className="header-action-btn" aria-label="cart" title="Cart">
-            <ion-icon name="cart-outline" aria-hidden="true"></ion-icon>
-            <span className="btn-badge">0</span>
+            <span className="btn-badge"><FontAwesomeIcon icon={faUser} /></span>
           </button>
 
           <Link to="/login" className="btn has-before">

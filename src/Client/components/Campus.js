@@ -4,9 +4,12 @@ import blog_shape from '../assets/images/blog-shape.png';
 import campusCourses from '../components/campusCourses ';
 import ReactPaginate from 'react-paginate';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import CampusPopUp from './campusPopUps';
+
 
 export default function Campus() {
   const [currentPage, setCurrentPage] = useState(0);
+  const [selectedCourse, setSelectedCourse] = useState(null); 
   const coursesPerPage = 6;
 
   const offset = currentPage * coursesPerPage;
@@ -14,6 +17,14 @@ export default function Campus() {
 
   const handlePageClick = (data) => {
     setCurrentPage(data.selected);
+  };
+
+  const openPopup = (course) => {
+    setSelectedCourse(course);
+  };
+
+  const closePopup = () => {
+    setSelectedCourse(null);
   };
 
   return (
@@ -24,13 +35,16 @@ export default function Campus() {
           <h2 className="h2 section-title">Explorez nos formations</h2>
           <ul className="grid-list">
             {currentCourses.map((course) => (
-              <li key={course.id}>
+              <li key={course.id} >
                 <div className="blog-card">
                   <figure className="card-banner img-holder has-after" style={{ '--width': '370', '--height': '370' }}>
                     <img src={course.image} width="370" height="370" loading="lazy" alt={course.nom} className="img-cover" />
+                    <div className="abs-badge">
+                      <span className="span">{course.duree}</span>
+                    </div>
                   </figure>
                   <div className="card-content">
-                    <a href="#" className="card-btn" aria-label="read more">
+                    <a onClick={() => openPopup(course)} className="card-btn" aria-label="read more">
                       <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
                     </a>
                     <span className="badge">Présentiel</span>
@@ -40,11 +54,11 @@ export default function Campus() {
                     <ul className="card-meta-list">
                       <li className="card-meta-item">
                         <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon>
-                        <span className="span">{new Date(course.date_debut).toLocaleString()}</span>
+                        <span className="span">{new Date(course.date_debut).toLocaleDateString()}</span>
                       </li>
                       <li className="card-meta-item">
                         <ion-icon name="chatbubbles-outline" aria-hidden="true"></ion-icon>
-                        <span className="span">{new Date(course.date_fin).toLocaleString()}</span>
+                        <span className="span">{new Date(course.date_fin).toLocaleDateString()}</span>
                       </li>
                     </ul>
                     <p className="card-text">
@@ -73,6 +87,11 @@ export default function Campus() {
           <img src={blog_shape} width="186" height="186" loading="lazy" alt="" className="shape blog-shape" />
         </div>
       </section>
+
+      
+      {selectedCourse && (
+        <CampusPopUp course={selectedCourse} closeModal={closePopup} />
+      )}
     </div>
   );
 }
