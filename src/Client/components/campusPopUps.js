@@ -1,14 +1,42 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 export default function CampusPopUp({ course, closeModal }) {
   const [isSubscribed, setIsSubscribed] = useState(false);
 
-  const handleSubscribe = () => {
-    setIsSubscribed(true);
-    setTimeout(() => {
-      closeModal();
-      setIsSubscribed(false);
-    }, 2000); 
+  const handleSubscribe = async (idFormation) => {
+    try {
+      const token = localStorage.getItem('token');
+  
+      const response = await axios.post(
+        `http://127.0.0.1:8001/api/AddParticiper/${idFormation}`,
+        {
+          idFormation,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          }
+        }
+      );
+  
+      const content = response.data;
+      console.log('Content:', content);
+      localStorage.setItem('content', JSON.stringify(content));
+
+      // Set subscribed state to true to show success message
+      setIsSubscribed(true);
+
+      // Reset subscribed state and close modal after 2 seconds
+      setTimeout(() => {
+        setIsSubscribed(false);
+        closeModal();
+      }, 2000);
+    } catch (error) {
+      console.error('Error:', error);
+      // Handle error state if needed
+    }
   };
 
   return (
@@ -32,7 +60,7 @@ export default function CampusPopUp({ course, closeModal }) {
           {isSubscribed ? (
             <p className="success-message">Inscription réussie !</p>
           ) : (
-            <button type="button" className="btn" onClick={handleSubscribe}>
+            <button type="button" className="btn" onClick={() => handleSubscribe(course.id)}>
               S'inscrire
             </button>
           )}

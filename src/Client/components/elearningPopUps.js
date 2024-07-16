@@ -3,12 +3,39 @@ import React, { useState } from 'react';
 export default function ElearningPopUp({ course, closeModal }) {
   const [isSubscribed, setIsSubscribed] = useState(false);
 
-  const handleSubscribe = () => {
-    setIsSubscribed(true);
-    setTimeout(() => {
-      closeModal();
-      setIsSubscribed(false);
-    }, 2000);
+  const handleSubscribe = async () => {
+    try {
+      const token = localStorage.getItem('token');
+
+      const response = await fetch(`http://127.0.0.1:8001/api/AddParticiper/${course.id}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ idFormation: course.id })
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to subscribe');
+      }
+
+      const content = await response.json();
+      console.log('Content:', content);
+      localStorage.setItem('content', JSON.stringify(content));
+
+      // Set subscribed state to true to show success message
+      setIsSubscribed(true);
+
+      // Reset subscribed state and close modal after 2 seconds
+      setTimeout(() => {
+        setIsSubscribed(false);
+        closeModal();
+      }, 2000);
+    } catch (error) {
+      console.error('Error:', error);
+      // Handle error state if needed
+    }
   };
 
   return (

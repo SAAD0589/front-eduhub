@@ -15,6 +15,7 @@ import partner9 from '../assets/images/estSale.JPG';
 import partner10 from '../assets/images/encgKenitra.PNG';
 import '../assets/css/style.css';
 import { Link } from 'react-router-dom';
+import PopupCompleteInfo from './PopupCompleteInfo';
 import Loader from './Loader';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -34,6 +35,7 @@ export default function Accueil() {
 
   return (
     <div>   
+    <PopupCompleteInfo/>
       <main>
         <article>
           <section className="section hero has-bg-image" id="home" aria-label="home"
