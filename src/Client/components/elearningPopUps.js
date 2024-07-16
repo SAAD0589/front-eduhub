@@ -1,41 +1,57 @@
 import React, { useState } from 'react';
-
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 export default function ElearningPopUp({ course, closeModal }) {
   const [isSubscribed, setIsSubscribed] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubscribe = async () => {
-    try {
-      const token = localStorage.getItem('token');
-
-      const response = await fetch(`http://127.0.0.1:8001/api/AddParticiper/${course.id}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({ idFormation: course.id })
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to subscribe');
+    if(localStorage.getItem('token')){
+      try {
+        const token = localStorage.getItem('token');
+  
+        const response = await fetch(`http://127.0.0.1:8001/api/AddParticiper/${course.id}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify({ idFormation: course.id })
+        });
+  
+        if (!response.ok) {
+          throw new Error('Failed to subscribe');
+        }
+  
+        const content = await response.json();
+        console.log('Content:', content);
+        localStorage.setItem('content', JSON.stringify(content));
+  
+        // Set subscribed state to true to show success message
+        setIsSubscribed(true);
+  
+        // Reset subscribed state and close modal after 2 seconds
+        setTimeout(() => {
+          setIsSubscribed(false);
+          closeModal();
+        }, 2000);
+      } catch (error) {
+        console.error('Error:', error);
+        // Handle error state if needed
       }
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Vous devez vous connecter',
+        confirmButtonColor: '#26b78a', // Green color
 
-      const content = await response.json();
-      console.log('Content:', content);
-      localStorage.setItem('content', JSON.stringify(content));
-
-      // Set subscribed state to true to show success message
-      setIsSubscribed(true);
-
-      // Reset subscribed state and close modal after 2 seconds
-      setTimeout(() => {
-        setIsSubscribed(false);
-        closeModal();
-      }, 2000);
-    } catch (error) {
-      console.error('Error:', error);
-      // Handle error state if needed
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate('/login');
+        }
+      });
     }
+   
   };
 
   return (
