@@ -26,7 +26,7 @@ export default function Register() {
         const content = await response.json();
         console.log(content);
         localStorage.setItem('content', JSON.stringify(content));
-        navigate("/");
+        navigate("/login");
     }
     return (
         <div class="main mt-5 pt-5">

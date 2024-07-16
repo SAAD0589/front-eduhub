@@ -81,7 +81,7 @@ export default function PopupCompleteInfo() {
                                     <input
                                         type="text"
                                         className="form-control"
-                                        placeholder="Enter Adresse"
+                                        placeholder="Adresse"
                                         onChange={(e) => setAdresse(e.target.value)}
                                     />
                                 </div>
@@ -89,7 +89,7 @@ export default function PopupCompleteInfo() {
                                     <input
                                         type="text"
                                         className="form-control"
-                                        placeholder="Enter Numero Telephone"
+                                        placeholder="Numero Telephone"
                                         onChange={(e) => setNumTelephone(e.target.value)}
                                     />
                                 </div>
@@ -97,7 +97,7 @@ export default function PopupCompleteInfo() {
                                     <input
                                         type="text"
                                         className="form-control"
-                                        placeholder="Enter Niveau Academique"
+                                        placeholder="Niveau Academique"
                                         onChange={(e) => setNiveauAcademique(e.target.value)}
                                     />
                                 </div>
@@ -105,7 +105,7 @@ export default function PopupCompleteInfo() {
                                     <input
                                         type="text"
                                         className="form-control"
-                                        placeholder="Enter Filiere Academique"
+                                        placeholder="Filiere Academique"
                                         onChange={(e) => setFiliereAcademique(e.target.value)}
                                     />
                                 </div>
@@ -117,7 +117,7 @@ export default function PopupCompleteInfo() {
                                     </select>
                                 </div>
                                 <div className="modal-footer d-flex justify-content-end">
-                                    <button type="submit" className="popbutton">Ajoute</button>
+                                    <button type="submit" className="popbutton">Valider</button>
                                 </div>
                             </form>
                         </div>

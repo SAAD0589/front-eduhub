@@ -77,15 +77,15 @@ export default function PopUpUniversiteWork() {
                 <div className="modal fade show" id="UniversiteWork" tabIndex="-1" role="dialog" aria-labelledby="coursePopupLabel" aria-hidden="true" style={{ display: 'block' }}>
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
-                            <p className='py-2 fw-bold'>Universite Work</p>
+                            <p className='py-2 fw-bold'>Universités</p>
                             <select className="form-select" onChange={handleSelectChange} aria-label="Default select example">
-                                <option selected>Open this select menu</option>
+                                <option selected>Ouvrir ce menu de sélection</option>
                                 {universites.map(universite => (
                                     <option value={universite.id} key={universite.id}>{universite.nom}</option>
                                 ))}
                             </select>
                             <div className="modal-footer d-flex justify-content-end">
-                                <button type="button" className="popbutton" onClick={handleButtonClick} data-bs-dismiss="modal">Ajoute</button>
+                                <button type="button" className="popbutton" onClick={handleButtonClick} data-bs-dismiss="modal">Valider</button>
                             </div>
                         </div>
                     </div>
