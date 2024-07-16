@@ -9,7 +9,7 @@ export default function NavBar() {
     <header className="header" data-header>
       <div className="container">
         <Link to="/" className="logo">
-          <img src={logo} width="162" height="50" alt="EduHub logo" />
+          <img src={logo} width="162" height="50" alt="EduHub logo" className="logo-h"/>
         </Link>
 
         <nav className="navbar" data-navbar>
@@ -44,10 +44,7 @@ export default function NavBar() {
             <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
           </button>
 
-          <button className="header-action-btn" aria-label="cart" title="Cart">
-            <span className="btn-badge"><FontAwesomeIcon icon={faUser} /></span>
-          </button>
-
+          
           <Link to="/login" className="btn has-before">
             <span className="span">Connexion</span>
             <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>

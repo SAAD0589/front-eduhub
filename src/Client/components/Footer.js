@@ -9,7 +9,7 @@ export default function Footer() {
 
           <div className="footer-brand">
             <a href="#" className="logo">
-              <img src={logoLight} width="162" height="50" alt="EduWeb logo"/>
+              <img src={logoLight} width="162" height="50" alt="EduWeb logo" className="logo-h"/>
             </a>
             <p className="footer-brand-text">
               EduHub est votre plateforme de référence pour les formations certifiées au Maroc. Nous offrons une large gamme de cours en ligne et sur campus, conçus pour développer vos compétences professionnelles et personnelles.

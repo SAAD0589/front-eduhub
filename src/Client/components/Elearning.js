@@ -1,16 +1,39 @@
 import React, { useState, useEffect } from 'react';
-import elearningCourses from '../components/elearningCourses';
+import axios from 'axios';
 import ReactPaginate from 'react-paginate';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import ElearningPopUp from './elearningPopUps'; // Import the popup component
-
+import Loader from './Loader';
 
 export default function Elearning() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [filteredCourses, setFilteredCourses] = useState(elearningCourses);
+  const [formationDistances, setFormationDistances] = useState([]);
+  const [filteredCourses, setFilteredCourses] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedCourse, setSelectedCourse] = useState(null); // New state for selected course
+  const [error, setError] = useState(null);
   const coursesPerPage = 6;
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading delay
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+  }, []);
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const response = await axios.get('http://127.0.0.1:8001/api/getFormationDistancesWithSessions');
+        setFormationDistances(response.data);
+        setFilteredCourses(response.data);
+      } catch (err) {
+        setError(err);
+      }
+    };
+    fetchCourses();
+  }, []);
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
@@ -19,15 +42,15 @@ export default function Elearning() {
 
   useEffect(() => {
     if (searchQuery === '') {
-      setFilteredCourses(elearningCourses);
+      setFilteredCourses(formationDistances);
     } else {
       setFilteredCourses(
-        elearningCourses.filter(course =>
-          course.nom.toLowerCase().includes(searchQuery.toLowerCase())
+        formationDistances.filter(course =>
+          course.session_formation.nom.toLowerCase().includes(searchQuery.toLowerCase())
         )
       );
     }
-  }, [searchQuery]);
+  }, [searchQuery, formationDistances]);
 
   const offset = currentPage * coursesPerPage;
   const currentCourses = filteredCourses.slice(offset, offset + coursesPerPage);
@@ -44,6 +67,8 @@ export default function Elearning() {
     setSelectedCourse(null);
   };
 
+  if (error) return <div>Error: {error.message}</div>;
+  if (loading) return <Loader />;
   return (
     <div>
       <section className="section course" id="courses" aria-label="course">
@@ -57,7 +82,7 @@ export default function Elearning() {
               value={searchQuery}
               onChange={handleSearchChange}
               className="search-bar"
-              style={{ direction: 'ltr' }} 
+              style={{ direction: 'ltr' }}
             />
           </div>
           <ul className="grid-list">
@@ -65,16 +90,16 @@ export default function Elearning() {
               <li key={course.id} onClick={() => openPopup(course)}>
                 <div className="course-card">
                   <figure className="card-banner img-holder" style={{ '--width': '370', '--height': '220' }}>
-                    <img src={course.image} width="370" height="220" loading="lazy" alt={course.nom} className="img-cover" />
+                    <img src={course.session_formation.image} width="370" height="220" loading="lazy" alt={course.session_formation.nom} className="img-cover" />
                   </figure>
                   <div className="abs-badge">
                     <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-                    <span className="span">{course.duree}</span>
+                    <span className="span">{course.session_formation.duree}</span>
                   </div>
                   <div className="card-content">
                     <span className="badge">En ligne</span>
                     <h3 className="h3">
-                      <a href="#" className="card-title">{course.nom}</a>
+                      <a href="#" className="card-title">{course.session_formation.nom}</a>
                     </h3>
                     <div className="wrapper">
                       <div className="rating-wrapper">
@@ -88,11 +113,11 @@ export default function Elearning() {
                     <ul className="card-meta-list">
                       <li className="card-meta-item">
                         <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
-                        <span className="span">{new Date(course.date_debut).toLocaleDateString()}</span>
+                        <span className="span">{new Date(course.session_formation.dateDebut).toLocaleDateString()}</span>
                       </li>
                       <li className="card-meta-item">
                         <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
-                        <span className="span">{new Date(course.date_fin).toLocaleDateString()}</span>
+                        <span className="span">{new Date(course.session_formation.dateFin).toLocaleDateString()}</span>
                       </li>
                     </ul>
                   </div>

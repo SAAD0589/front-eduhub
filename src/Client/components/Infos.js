@@ -1,7 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import about_banner from '../assets/images/about-banner.jpg';
-
-
 import about_shape_3 from '../assets/images/about-shape-3.png';
 import about_shape_4 from '../assets/images/about-shape-4.svg';
 import video_bg from '../assets/images/video-bg.png';
@@ -12,8 +10,20 @@ import category_1 from '../assets/images/category-1.svg';
 import category_2 from '../assets/images/category-2.svg';
 import category_3 from '../assets/images/category-3.svg';
 import category_4 from '../assets/images/category-3.svg';
+import Loader from './Loader';
 
 export default function Infos() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading delay
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+
+  if (loading) return <Loader />;
+
   return (
     <div>
       <section class="section category" aria-label="category">

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-
 export default function CampusPopUp({ course, closeModal }) {
   const [isSubscribed, setIsSubscribed] = useState(false);
 
@@ -16,18 +15,18 @@ export default function CampusPopUp({ course, closeModal }) {
     <div className="modal-overlay" onClick={closeModal}>
       <div className="modal-content" onClick={e => e.stopPropagation()}>
         <div className="modal-header">
-          <h5 className="modal-title">{course.nom}</h5>
+          <h5 className="modal-title">{course.session_formation.nom}</h5>
           <button type="button" className="close" onClick={closeModal}>
             &times;
           </button>
         </div>
         <div className="modal-body">
-          <img src={course.image} alt={course.nom} className="img-fluid" />
-          <p>{course.description}</p>
-          <p>
-            du {new Date(course.date_debut).toLocaleDateString()} au {new Date(course.date_fin).toLocaleDateString()}
+          <img src={course.session_formation.image} alt={course.session_formation.nom} className="img-fluid" />
+          <p className="description">{course.session_formation.description}</p>
+          <p className="dates">
+            du {new Date(course.session_formation.dateDebut).toLocaleDateString()} au {new Date(course.session_formation.dateFin).toLocaleDateString()}
           </p>
-          <p>{course.adresse}</p>
+          <p className="adresse">Adresse : {course.adresse}</p>
         </div>
         <div className="modal-footer">
           {isSubscribed ? (

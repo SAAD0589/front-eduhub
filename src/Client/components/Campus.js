@@ -1,16 +1,38 @@
-import React, { useState } from 'react';
-import blog_bg from '../assets/images/blog-bg.svg';
-import blog_shape from '../assets/images/blog-shape.png';
-import campusCourses from '../components/campusCourses ';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import ReactPaginate from 'react-paginate';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import CampusPopUp from './campusPopUps';
-
+import blog_bg from '../assets/images/blog-bg.svg';
+import blog_shape from '../assets/images/blog-shape.png';
+import Loader from './Loader';
 
 export default function Campus() {
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedCourse, setSelectedCourse] = useState(null); 
+  const [campusCourses, setCampusCourses] = useState([]);
+  const [error, setError] = useState(null);
   const coursesPerPage = 6;
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+  }, []);
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const response = await axios.get('http://127.0.0.1:8001/api/getFormationsPresentielWithSessions');
+        setCampusCourses(response.data);
+      } catch (err) {
+        setError(err);
+      }
+    };
+    fetchCourses();
+  }, []);
 
   const offset = currentPage * coursesPerPage;
   const currentCourses = campusCourses.slice(offset, offset + coursesPerPage);
@@ -27,6 +49,8 @@ export default function Campus() {
     setSelectedCourse(null);
   };
 
+  if (error) return <div>Error: {error.message}</div>;
+  if (loading) return <Loader />;
   return (
     <div>
       <section className="section blog has-bg-image" id="blog" aria-label="blog" style={{ backgroundImage: `url(${blog_bg})` }}>
@@ -38,9 +62,9 @@ export default function Campus() {
               <li key={course.id} >
                 <div className="blog-card">
                   <figure className="card-banner img-holder has-after" style={{ '--width': '370', '--height': '370' }}>
-                    <img src={course.image} width="370" height="370" loading="lazy" alt={course.nom} className="img-cover" />
+                    <img src={course.session_formation.image} width="370" height="370" loading="lazy" alt={course.session_formation.nom} className="img-cover" />
                     <div className="abs-badge">
-                      <span className="span">{course.duree}</span>
+                      <span className="span">{course.session_formation.duree}</span>
                     </div>
                   </figure>
                   <div className="card-content">
@@ -49,21 +73,19 @@ export default function Campus() {
                     </a>
                     <span className="badge">Présentiel</span>
                     <h3 className="h3">
-                      <a href="#" className="card-title">{course.nom}</a>
+                      <a href="#" className="card-title">{course.session_formation.nom}</a>
                     </h3>
                     <ul className="card-meta-list">
                       <li className="card-meta-item">
                         <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon>
-                        <span className="span">{new Date(course.date_debut).toLocaleDateString()}</span>
+                        <span className="span">{new Date(course.session_formation.dateDebut).toLocaleDateString()}</span>
                       </li>
                       <li className="card-meta-item">
                         <ion-icon name="chatbubbles-outline" aria-hidden="true"></ion-icon>
-                        <span className="span">{new Date(course.date_fin).toLocaleDateString()}</span>
+                        <span className="span">{new Date(course.session_formation.dateFin).toLocaleDateString()}</span>
                       </li>
                     </ul>
-                    <p className="card-text">
-                      {course.adresse}
-                    </p>
+                    
                   </div>
                 </div>
               </li>
@@ -88,7 +110,6 @@ export default function Campus() {
         </div>
       </section>
 
-      
       {selectedCourse && (
         <CampusPopUp course={selectedCourse} closeModal={closePopup} />
       )}
