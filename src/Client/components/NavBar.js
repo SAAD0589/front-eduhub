@@ -121,11 +121,11 @@ export default function NavBar() {
 
           {localStorage.getItem('idUser') ?
             <button onClick={handleLogoutClick} className='btnLogout btn-danger rounded'>
-            Logout
+              <i class="mdi mdi-logout"></i>  Déconnexion
             </button>
             :
             <Link to="/login" className="btn has-before">
-              <span className="span">Connexion</span>
+              <span className="btnLogout span fw-bold"><i class="mdi mdi-login"></i>    Connexion</span>
               <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
             </Link>
           }

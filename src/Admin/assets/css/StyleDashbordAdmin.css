@@ -209,9 +209,9 @@ header {
 }
 .btnLogout{
     cursor: pointer;
-    padding: 10px 15px;
+    padding: 5px 12px;
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 400;
 }
 .notify-icon span:last-child {
     position: absolute;

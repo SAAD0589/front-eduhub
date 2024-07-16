@@ -16,22 +16,13 @@ import partner10 from '../assets/images/encgKenitra.PNG';
 import '../assets/css/style.css';
 import { Link } from 'react-router-dom';
 import PopupCompleteInfo from './PopupCompleteInfo';
-import Loader from './Loader';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 
 export default function Accueil() {
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 1500);
-  }, []);
-
-  if (loading) return <Loader />;
 
   return (
     <div>   

@@ -1,4 +1,4 @@
-/* @extend display-flex; */
+@extend display-flex;
 display-flex, .display-flex, .display-flex-center, .signup-content, .signin-content, .social-login, .socials {
     display: flex;
     display: -webkit-flex; }
@@ -57,7 +57,7 @@ display-flex, .display-flex, .display-flex-center, .signup-content, .signin-cont
     -o-appearance: radio !important;
     -ms-appearance: radio !important; }
   
-  img {
+  .img_Auth {
     max-width: 100%;
     height: auto; }
   
@@ -88,6 +88,7 @@ display-flex, .display-flex, .display-flex-center, .signup-content, .signin-cont
 
 
   .containerLogin {
+    margin-top: 6% !important;
     font-family: 'Poppins', sans-serif;
     width: 900px;
     background: #fff;

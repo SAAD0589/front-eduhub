@@ -34,16 +34,16 @@ export default function Login() {
     }
     return (
         <div className='main mt-5 pt-5'>
-        <section class="sign-in my-5">
+        <section class="sign-in my-5 mt-5">
         <div class="containerLogin">
             <div class="signin-content">
                 <div class="signin-image">
-                    <figure><img src={signin_image} alt="sing up image"/></figure>
-                    <Link to="/register" class="signup-image-link">Create an account</Link>
+                    <figure><img className='img_Auth' src={signin_image} alt="sing up image"/></figure>
+                    <Link to="/register" class="signup-image-link">Créer un compte</Link>
                 </div>
 
                 <div class="signin-form">
-                    <h2 class="form-title">Sign up</h2>
+                    <h2 class="form-title">Connectez Vous</h2>
                     <form method="POST" class="register-form" id="login-form" onSubmit={Login}>
                         <div class="form-group">
                             <label for="your_name"><i className="mdi mdi-email"></i></label>
