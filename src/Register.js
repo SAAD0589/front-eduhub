@@ -26,7 +26,7 @@ export default function Register() {
         const content = await response.json();
         console.log(content);
         localStorage.setItem('content', JSON.stringify(content));
-        navigate("/");
+        navigate("/login");
     }
     return (
         <div class="main mt-5 pt-5">
@@ -35,7 +35,7 @@ export default function Register() {
                 <div class="containerLogin">
                     <div class="signup-content">
                         <div class="signup-form">
-                            <h2 class="form-title">Sign up</h2>
+                            <h2 class="form-title">S'inscrire</h2>
                             <form onSubmit={Register}  class="register-form" id="register-form">
                                 <div class="form-group">
                                     <label for="name"><i class="mdi mdi-account"></i>
@@ -68,7 +68,7 @@ export default function Register() {
                             </form>
                         </div>
                         <div class="signup-image">
-                            <figure><img src={signup_image} alt="sing up image" />
+                            <figure><img className='img_Auth' src={signup_image} alt="sing up image" />
                             </figure>
                             <Link className='signup-image-link fw-bold' to="/login">Vous avez déjà un compte ?</Link>
                         </div>
