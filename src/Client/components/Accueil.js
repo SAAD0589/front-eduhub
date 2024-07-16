@@ -13,10 +13,12 @@ import partner7 from '../assets/images/um5Rabat.PNG';
 import partner8 from '../assets/images/ibntofail.PNG';
 import '../assets/css/style.css';
 import { Link } from 'react-router-dom';
+import PopupCompleteInfo from './PopupCompleteInfo';
 
 export default function Accueil() {
   return (
     <div>   
+    <PopupCompleteInfo/>
       <main>
         <article>
           <section class="section hero has-bg-image" id="home" aria-label="home"

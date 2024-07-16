@@ -145,17 +145,11 @@
   
   address { font-style: normal; }
   
-  html {
-    font-family: var(--ff-poppins);
-    font-size: 10px;
-    scroll-behavior: smooth;
-  }
+
   
   body {
     background-color: var(--white);
     color: var(--gray-web);
-    font-size: 1.6rem;
-    line-height: 1.75;
   }
   
   :focus-visible { outline-offset: 4px; }
@@ -224,7 +218,7 @@
     background-color: var(--kappel);
     color: var(--white);
     font-family: var(--ff-league_spartan);
-    font-size: var(--fs-4);
+    font-size: 18px;
     display: flex;
     align-items: center;
     gap: 7px;
